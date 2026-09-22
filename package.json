@@ -1,0 +1,23 @@
+{
+  "name": "technology-news-blogs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Web-C-Generation-2027/Technology-News-Blogs.git"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Web-C-Generation-2027/Technology-News-Blogs/issues"
+  },
+  "homepage": "https://github.com/Web-C-Generation-2027/Technology-News-Blogs#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  }
+}
