@@ -1,1 +1,50 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Design tokens for this project (Tailwind v4 CSS-first config).
+   Anything used in the HTML/JS as a class — bg-navy, text-cyan, font-head,
+   etc. — has to be declared here, or Tailwind has no idea what it means
+   and simply generates no CSS for it. */
+@theme {
+  --color-navy: #171A2B;
+  --color-purple: #6C3FA0;
+  --color-purple-900: #24113A;
+  --color-purple-800: #3C1E5E;
+  --color-purple-500: #8E63BD;
+  --color-purple-300: #B99ADD;
+  --color-purple-100: #E5D9F2;
+  --color-lavender: #F7F3FC;
+  --color-cyan: #4CC9F0;
+  --color-ink: #242124;
+  --color-muted: #6B6870;
+  --color-err: #B3261E;
+
+  --font-head: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* Keyframes referenced by the arbitrary animate-[...] utilities in the
+   HTML (e.g. animate-[float-blob_10s_ease-in-out_infinite]). Tailwind
+   will happily generate the "animation:" line for those classes even if
+   no matching @keyframes exists — so without this block the class
+   "works" but visibly does nothing. */
+@keyframes float-blob {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-26px, 20px); }
+}
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(76, 201, 240, .55); }
+  50% { box-shadow: 0 0 0 6px rgba(76, 201, 240, 0); }
+}
+@keyframes pulse-dot-purple {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(108, 63, 160, .45); }
+  50% { box-shadow: 0 0 0 6px rgba(108, 63, 160, 0); }
+}
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes feed-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
