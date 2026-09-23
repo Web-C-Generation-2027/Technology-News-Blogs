@@ -1,25 +1,17 @@
 {
-  "name": "technology-news-blogs",
+  "name": "my-website",
   "version": "1.0.0",
-  "description": "",
+  "description": "A responsive multi-page website built with HTML, Tailwind CSS (v4, compiled with @tailwindcss/cli) and vanilla JavaScript.",
   "main": "index.js",
   "scripts": {
-    "dev": "tailwindcss -i ./src/input.css -o ./src/output.css --watch",
-    "build": "tailwindcss -i ./src/input.css -o ./src/output.css --minify",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Web-C-Generation-2027/Technology-News-Blogs.git"
+    "build": "tailwindcss -i src/input.css -o src/output.css --minify",
+    "watch": "tailwindcss -i src/input.css -o src/output.css --watch"
   },
   "keywords": [],
   "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/Web-C-Generation-2027/Technology-News-Blogs/issues"
-  },
-  "homepage": "https://github.com/Web-C-Generation-2027/Technology-News-Blogs#readme",
   "dependencies": {
     "@tailwindcss/cli": "^4.3.3",
+    "@tailwindcss/typography": "^0.5.16",
     "tailwindcss": "^4.3.3"
   }
 }
