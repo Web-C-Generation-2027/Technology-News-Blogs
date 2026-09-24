@@ -10,22 +10,10 @@
       "Courier New", monospace;
     --color-purple-100: #E5D9F2;
     --color-purple-500: #8E63BD;
-    --color-purple-600: oklch(55.8% 0.288 302.321);
-    --color-purple-700: oklch(49.6% 0.265 301.924);
     --color-purple-800: #3C1E5E;
     --color-purple-900: #24113A;
-    --color-gray-50: oklch(98.5% 0.002 247.839);
-    --color-gray-100: oklch(96.7% 0.003 264.542);
-    --color-gray-300: oklch(87.2% 0.01 258.338);
-    --color-gray-400: oklch(70.7% 0.022 261.325);
-    --color-gray-500: oklch(55.1% 0.027 264.364);
-    --color-gray-700: oklch(37.3% 0.034 259.733);
-    --color-gray-800: oklch(27.8% 0.033 256.848);
-    --color-gray-900: oklch(21% 0.034 264.665);
     --color-white: #fff;
     --spacing: 0.25rem;
-    --container-2xl: 42rem;
-    --container-6xl: 72rem;
     --text-sm: 0.875rem;
     --text-sm--line-height: calc(1.25 / 0.875);
     --text-base: 1rem;
@@ -34,8 +22,6 @@
     --text-lg--line-height: calc(1.75 / 1.125);
     --text-2xl: 1.5rem;
     --text-2xl--line-height: calc(2 / 1.5);
-    --text-3xl: 1.875rem;
-    --text-3xl--line-height: calc(2.25 / 1.875);
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
@@ -52,6 +38,7 @@
     --color-cyan: #4CC9F0;
     --color-ink: #242124;
     --color-muted: #6B6870;
+    --color-err: #B3261E;
     --font-head: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
     --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   }
@@ -276,6 +263,9 @@
   .mt-0 {
     margin-top: 0px;
   }
+  .mt-0\.5 {
+    margin-top: calc(var(--spacing) * 0.5);
+  }
   .mt-1 {
     margin-top: var(--spacing);
   }
@@ -299,6 +289,9 @@
   }
   .mt-10 {
     margin-top: calc(var(--spacing) * 10);
+  }
+  .mt-\[18px\] {
+    margin-top: 18px;
   }
   .mb-1\.5 {
     margin-bottom: calc(var(--spacing) * 1.5);
@@ -359,6 +352,12 @@
   }
   .h-\[68px\] {
     height: 68px;
+  }
+  .min-h-0 {
+    min-height: 0px;
+  }
+  .min-h-\[140px\] {
+    min-height: 140px;
   }
   .w-2 {
     width: calc(var(--spacing) * 2);
@@ -455,6 +454,9 @@
   .cursor-pointer {
     cursor: pointer;
   }
+  .resize-y {
+    resize: vertical;
+  }
   .list-none {
     list-style-type: none;
   }
@@ -478,6 +480,9 @@
   }
   .items-end {
     align-items: flex-end;
+  }
+  .items-start {
+    align-items: flex-start;
   }
   .items-stretch {
     align-items: stretch;
@@ -517,6 +522,9 @@
   }
   .gap-10 {
     gap: calc(var(--spacing) * 10);
+  }
+  .gap-\[18px\] {
+    gap: 18px;
   }
   .gap-x-6 {
     column-gap: calc(var(--spacing) * 6);
@@ -663,6 +671,9 @@
   }
   .p-0 {
     padding: 0px;
+  }
+  .p-7 {
+    padding: calc(var(--spacing) * 7);
   }
   .px-0 {
     padding-inline: 0px;
@@ -814,6 +825,9 @@
   .text-cyan {
     color: var(--color-cyan);
   }
+  .text-err {
+    color: var(--color-err);
+  }
   .text-ink {
     color: var(--color-ink);
   }
@@ -864,6 +878,9 @@
   }
   .\[transition-delay\:70ms\] {
     transition-delay: 70ms;
+  }
+  .\[transition-delay\:80ms\] {
+    transition-delay: 80ms;
   }
   .\[transition-delay\:120ms\] {
     transition-delay: 120ms;
@@ -1120,6 +1137,9 @@
   }
   .aria-\[current\=page\]\:text-purple[aria-current="page"] {
     color: var(--color-purple);
+  }
+  .aria-\[invalid\=true\]\:border-err[aria-invalid="true"] {
+    border-color: var(--color-err);
   }
   @media (width >= 641px) {
     .min-\[641px\]\:col-span-2 {
