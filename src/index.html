@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NewsTech</title>
+  <meta name="description" content="Clear technology news and useful technology blogs on AI, gadgets, software and cybersecurity for students and technology enthusiasts.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="output.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-lavender font-body text-base leading-[1.6] text-ink">
+  <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-3 focus:z-[100] focus:rounded-lg focus:bg-purple focus:px-4 focus:py-2.5 focus:text-white" href="#main">Skip to main content</a>
+  <header class="sticky top-0 z-50 border-b border-purple-100 bg-white">
+    <div class="mx-auto flex h-[68px] w-[min(100%-3rem,1120px)] items-center justify-between">
+      <a class="brand inline-flex items-center gap-2.5 font-head text-lg font-semibold text-purple no-underline hover:text-purple-800" href="index.html"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="9" fill="#6C3FA0"/><path d="M7 17h5l3-7 4 12 3-5h3" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="25" cy="17" r="2.2" fill="#4CC9F0"/></svg><span>NewsTech</span></a>
+      <button class="nav-toggle inline-flex h-11 w-11 items-center justify-center rounded-[10px] border border-purple-100 text-purple min-[821px]:hidden" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
+        <svg class="h-[22px] w-[22px] fill-none stroke-current stroke-2 [stroke-linecap:round] [stroke-linejoin:round]" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="hidden absolute inset-x-0 top-full border-b border-purple-100 bg-white px-6 pb-4 pt-2 min-[821px]:static min-[821px]:flex min-[821px]:border-0 min-[821px]:bg-transparent min-[821px]:p-0" id="site-nav" aria-label="Main">
+        <ul class="m-0 flex list-none flex-col gap-0 p-0 min-[821px]:flex-row min-[821px]:items-center min-[821px]:gap-7">
+        <li><a class="block border-b-2 border-transparent px-0 py-3 font-body text-base font-medium text-ink no-underline hover:border-cyan hover:text-purple aria-[current=page]:border-purple aria-[current=page]:text-purple min-[821px]:inline-block min-[821px]:py-1.5" href="index.html" data-nav="home" aria-current="page">Home</a></li>
+        <li><a class="block border-b-2 border-transparent px-0 py-3 font-body text-base font-medium text-ink no-underline hover:border-cyan hover:text-purple aria-[current=page]:border-purple aria-[current=page]:text-purple min-[821px]:inline-block min-[821px]:py-1.5" href="news.html" data-nav="news">News</a></li>
+        <li><a class="block border-b-2 border-transparent px-0 py-3 font-body text-base font-medium text-ink no-underline hover:border-cyan hover:text-purple aria-[current=page]:border-purple aria-[current=page]:text-purple min-[821px]:inline-block min-[821px]:py-1.5" href="blogs.html" data-nav="blogs">Blogs</a></li>
+        <li><a class="block border-b-2 border-transparent px-0 py-3 font-body text-base font-medium text-ink no-underline hover:border-cyan hover:text-purple aria-[current=page]:border-purple aria-[current=page]:text-purple min-[821px]:inline-block min-[821px]:py-1.5" href="categories.html" data-nav="categories">Categories</a></li>
+        <li><a class="block border-b-2 border-transparent px-0 py-3 font-body text-base font-medium text-ink no-underline hover:border-cyan hover:text-purple aria-[current=page]:border-purple aria-[current=page]:text-purple min-[821px]:inline-block min-[821px]:py-1.5" href="about.html" data-nav="about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="relative overflow-hidden bg-navy px-0 pb-20 pt-[72px] text-white">
+      <div aria-hidden="true" class="pointer-events-none absolute inset-0 before:absolute before:-right-16 before:-top-36 before:h-[380px] before:w-[380px] before:animate-[float-blob_10s_ease-in-out_infinite] before:rounded-full before:bg-purple before:opacity-55 before:blur-[70px] before:content-[''] after:absolute after:-bottom-32 after:left-[4%] after:h-[280px] after:w-[280px] after:animate-[float-blob_13s_ease-in-out_infinite_reverse] after:rounded-full after:bg-cyan after:opacity-20 after:blur-[70px] after:content-['']"></div>
+      <div class="relative z-10 mx-auto grid w-[min(100%-3rem,1120px)] grid-cols-1 items-center gap-10 min-[961px]:grid-cols-[1.15fr_.85fr] min-[961px]:gap-14">
+        <div>
+          <span class="[animation:hero-in_.5s_ease_both] mb-[18px] inline-flex items-center gap-2 rounded-full border border-cyan/[0.38] bg-cyan/[0.14] px-3.5 py-1.5 font-body text-sm font-medium text-cyan"><span class="h-2 w-2 animate-[pulse-dot_1.8s_ease-in-out_infinite] rounded-full bg-current"></span> Updated with new stories regularly</span>
+          <h1 class="[animation:hero-in_.55s_ease_both] [animation-delay:60ms] font-head text-[32px] font-bold leading-[1.2] text-white min-[641px]:text-[40px]" id="hero-title">Understand the technology behind the headlines</h1>
+          <p class="[animation:hero-in_.55s_ease_both] [animation-delay:120ms] mb-8 mt-5 max-w-[52ch] text-purple-100">Clear news and practical blogs about AI, gadgets, software and online safety, written for students and anyone curious about how technology works.</p>
+          <div class="[animation:hero-in_.55s_ease_both] [animation-delay:180ms] flex flex-wrap gap-3">
+            <a class="inline-flex items-center justify-center rounded-[10px] border-2 border-transparent px-[22px] py-3 font-body text-base font-medium no-underline cursor-pointer transition-all duration-200 active:translate-y-0 bg-purple text-white hover:-translate-y-0.5 hover:bg-purple-800 hover:shadow-[0_12px_22px_rgba(108,63,160,0.32)]" href="news.html">Read the latest news</a>
+            <a class="inline-flex items-center justify-center rounded-[10px] border-2 px-[22px] py-3 font-body text-base font-medium no-underline cursor-pointer transition-all duration-200 active:translate-y-0 border-white/45 text-white bg-transparent hover:-translate-y-0.5 hover:border-cyan hover:text-cyan" href="blogs.html">Browse blogs</a>
+          </div>
+        </div>
+        <aside class="[animation:hero-in_.6s_ease_both] [animation-delay:200ms] relative z-10 rounded-2xl border border-white/[0.14] bg-white/[0.06] py-2" aria-labelledby="feed-title">
+          <h2 class="px-6 pb-2.5 pt-3.5 font-head text-lg font-semibold text-white" id="feed-title">Latest headlines</h2>
+          <ul class="m-0 list-none p-0" id="hero-feed"></ul>
+        </aside>
+      </div>
+    </section>
+
+    <section aria-labelledby="stats-title" class="relative z-[2] px-0">
+      <div class="mx-auto w-[min(100%-3rem,1120px)]">
+        <h2 class="sr-only" id="stats-title">Site overview</h2>
+        <ul class="grid -translate-y-[30px] grid-cols-2 gap-4 rounded-[18px] border border-purple-100 bg-white px-6 py-[22px] text-center shadow-[0_22px_44px_rgba(23,26,43,0.12)] min-[761px]:grid-cols-4 min-[761px]:-translate-y-[38px] min-[761px]:py-[26px]">
+          <li class="opacity-0 translate-y-6 transition-all duration-500" data-reveal><span class="block font-head text-[26px] font-bold leading-[1.15] text-purple min-[641px]:text-[34px]" id="stat-articles">0</span><span class="mt-1 block text-sm text-muted">Articles &amp; posts</span></li>
+          <li class="opacity-0 translate-y-6 transition-all duration-500 [transition-delay:70ms]" data-reveal><span class="block font-head text-[26px] font-bold leading-[1.15] text-purple min-[641px]:text-[34px]" id="stat-categories">0</span><span class="mt-1 block text-sm text-muted">Categories</span></li>
+          <li class="opacity-0 translate-y-6 transition-all duration-500 [transition-delay:140ms]" data-reveal><span class="block font-head text-[26px] font-bold leading-[1.15] text-purple min-[641px]:text-[34px]" id="stat-news">0</span><span class="mt-1 block text-sm text-muted">News stories</span></li>
+          <li class="opacity-0 translate-y-6 transition-all duration-500 [transition-delay:210ms]" data-reveal><span class="block font-head text-[26px] font-bold leading-[1.15] text-purple min-[641px]:text-[34px]" id="stat-blogs">0</span><span class="mt-1 block text-sm text-muted">Blog posts</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="features-title" class="bg-white px-0 py-16">
+      <div class="mx-auto w-[min(100%-3rem,1120px)]">
+        <div class="opacity-0 translate-y-6 transition-all duration-500" data-reveal>
+          <span class="mb-[18px] inline-flex items-center gap-2 rounded-full border border-purple/[0.28] bg-purple/[0.08] px-3.5 py-1.5 font-body text-sm font-medium text-purple"><span class="h-2 w-2 animate-[pulse-dot-purple_1.8s_ease-in-out_infinite] rounded-full bg-current"></span> Why this site</span>
+          <h2 class="font-head text-[26px] font-semibold leading-[1.3] text-ink min-[641px]:text-[32px]" id="features-title">Technology content, organized in one place</h2>
+          <p class="mt-2.5 max-w-[64ch] text-muted">Technology news and blogs are spread across many different websites. Technology News &amp; Blogs brings it together with clear navigation, categories and article pages, so students and technology enthusiasts can find and read what matters without the searching.</p>
+        </div>
+        <ul class="mt-8 grid list-none grid-cols-1 gap-5 p-0 min-[641px]:grid-cols-2 min-[961px]:grid-cols-3">
+          <li class="group relative overflow-hidden rounded-2xl border border-purple-100 bg-white px-[22px] pb-[22px] pt-6 opacity-0 translate-y-6 transition-all duration-500 hover:-translate-y-1.5 hover:border-cyan hover:shadow-[0_18px_32px_rgba(23,26,43,0.1)] [transition-delay:0ms]" data-reveal>
+            <span class="pointer-events-none absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-purple to-cyan transition-transform duration-300 group-hover:scale-x-100"></span>
+            <span class="mb-3.5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-navy text-cyan transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-[1.07] group-hover:bg-purple [&>svg]:h-6 [&>svg]:w-6">
+              <svg class="fill-none stroke-current stroke-2 [stroke-linecap:round] [stroke-linejoin:round]" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4h13a2 2 0 0 1 2 2v13a1 1 0 0 1-1 1H6a2 2 0 0 1-2-2z"/><path d="M19 8h2v10a1 1 0 0 1-1 1"/><path d="M8 8h7M8 12h7M8 16h4"/></svg>
+            </span>
+            <h3 class="mb-1.5 font-head text-[19px] font-semibold leading-[1.4]">News</h3>
+            <p class="text-[15px] text-muted">Technology news articles for you to discover, organized and easy to scan.</p>
+          </li>
+          <li class="group relative overflow-hidden rounded-2xl border border-purple-100 bg-white px-[22px] pb-[22px] pt-6 opacity-0 translate-y-6 transition-all duration-500 hover:-translate-y-1.5 hover:border-cyan hover:shadow-[0_18px_32px_rgba(23,26,43,0.1)] [transition-delay:60ms]" data-reveal>
+            <span class="pointer-events-none absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-purple to-cyan transition-transform duration-300 group-hover:scale-x-100"></span>
+            <span class="mb-3.5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-navy text-cyan transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-[1.07] group-hover:bg-purple [&>svg]:h-6 [&>svg]:w-6">
+              <svg class="fill-none stroke-current stroke-2 [stroke-linecap:round] [stroke-linejoin:round]" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 21l4.2-1 11-11-3.2-3.2-11 11z"/><path d="M13.8 6.8l3.2 3.2"/></svg>
+            </span>
+            <h3 class="mb-1.5 font-head text-[19px] font-semibold leading-[1.4]">Blogs</h3>
+            <p class="text-[15px] text-muted">Useful technology blog posts written in plain language, not jargon.</p>
+          </li>
+          <li class="group relative overflow-hidden rounded-2xl border border-purple-100 bg-white px-[22px] pb-[22px] pt-6 opacity-0 translate-y-6 transition-all duration-500 hover:-translate-y-1.5 hover:border-cyan hover:shadow-[0_18px_32px_rgba(23,26,43,0.1)] [transition-delay:120ms]" data-reveal>
+            <span class="pointer-events-none absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-purple to-cyan transition-transform duration-300 group-hover:scale-x-100"></span>
+            <span class="mb-3.5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-navy text-cyan transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-[1.07] group-hover:bg-purple [&>svg]:h-6 [&>svg]:w-6">
+              <svg class="fill-none stroke-current stroke-2 [stroke-linecap:round] [stroke-linejoin:round]" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg>
+            </span>
+            <h3 class="mb-1.5 font-head text-[19px] font-semibold leading-[1.4]">Categories</h3>
+            <p class="text-[15px] text-muted">Content organized into clear categories, so browsing takes seconds.</p>
+          </li>
+          <li class="group relative overflow-hidden rounded-2xl border border-purple-100 bg-white px-[22px] pb-[22px] pt-6 opacity-0 translate-y-6 transition-all duration-500 hover:-translate-y-1.5 hover:border-cyan hover:shadow-[0_18px_32px_rgba(23,26,43,0.1)] [transition-delay:180ms]" data-reveal>
+            <span class="pointer-events-none absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-purple to-cyan transition-transform duration-300 group-hover:scale-x-100"></span>
+            <span class="mb-3.5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-navy text-cyan transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-[1.07] group-hover:bg-purple [&>svg]:h-6 [&>svg]:w-6">
+              <svg class="fill-none stroke-current stroke-2 [stroke-linecap:round] [stroke-linejoin:round]" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v5h4"/><path d="M9 12h6M9 16h6"/></svg>
+            </span>
+            <h3 class="mb-1.5 font-head text-[19px] font-semibold leading-[1.4]">Article details</h3>
+            <p class="text-[15px] text-muted">Open any article and read the full story on its own clean page.</p>
+          </li>
+          <li class="group relative overflow-hidden rounded-2xl border border-purple-100 bg-white px-[22px] pb-[22px] pt-6 opacity-0 translate-y-6 transition-all duration-500 hover:-translate-y-1.5 hover:border-cyan hover:shadow-[0_18px_32px_rgba(23,26,43,0.1)] [transition-delay:240ms]" data-reveal>
+            <span class="pointer-events-none absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-purple to-cyan transition-transform duration-300 group-hover:scale-x-100"></span>
+            <span class="mb-3.5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-navy text-cyan transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-[1.07] group-hover:bg-purple [&>svg]:h-6 [&>svg]:w-6">
+              <svg class="fill-none stroke-current stroke-2 [stroke-linecap:round] [stroke-linejoin:round]" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M15 9l-2 5-5 2 2-5z"/></svg>
+            </span>
+            <h3 class="mb-1.5 font-head text-[19px] font-semibold leading-[1.4]">Clear navigation</h3>
+            <p class="text-[15px] text-muted">A simple menu ties every page and section together.</p>
+          </li>
+          <li class="group relative overflow-hidden rounded-2xl border border-purple-100 bg-white px-[22px] pb-[22px] pt-6 opacity-0 translate-y-6 transition-all duration-500 hover:-translate-y-1.5 hover:border-cyan hover:shadow-[0_18px_32px_rgba(23,26,43,0.1)] [transition-delay:300ms]" data-reveal>
+            <span class="pointer-events-none absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-purple to-cyan transition-transform duration-300 group-hover:scale-x-100"></span>
+            <span class="mb-3.5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-navy text-cyan transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-[1.07] group-hover:bg-purple [&>svg]:h-6 [&>svg]:w-6">
+              <svg class="fill-none stroke-current stroke-2 [stroke-linecap:round] [stroke-linejoin:round]" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="4" width="15" height="11" rx="1.5"/><path d="M2 18h15"/><rect x="18" y="9" width="4" height="9" rx="1"/></svg>
+            </span>
+            <h3 class="mb-1.5 font-head text-[19px] font-semibold leading-[1.4]">Responsive design</h3>
+            <p class="text-[15px] text-muted">The layout adapts cleanly to desktop, tablet and mobile screens.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="news-title" class="px-0 py-16">
+      <div class="mx-auto w-[min(100%-3rem,1120px)]">
+        <div class="mb-8 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+          <h2 class="font-head text-2xl font-semibold leading-[1.3] text-purple min-[641px]:text-[32px]" id="news-title">Latest news</h2>
+          <a class="font-medium text-purple hover:text-purple-800" href="news.html">View all news</a>
+        </div>
+        <div class="grid grid-cols-1 items-stretch gap-8 min-[961px]:grid-cols-[1.25fr_1fr]">
+          <div id="featured-news"></div>
+          <ul class="m-0 grid list-none gap-0 rounded-2xl border border-purple-100 bg-white p-0 px-6" aria-label="More news" id="news-list"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="cat-title" class="bg-white px-0 py-16">
+      <div class="mx-auto w-[min(100%-3rem,1120px)]">
+        <div class="mb-8 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+          <h2 class="font-head text-2xl font-semibold leading-[1.3] text-purple min-[641px]:text-[32px]" id="cat-title">Browse by category</h2>
+          <a class="font-medium text-purple hover:text-purple-800" href="categories.html">See all categories</a>
+        </div>
+        <ul class="grid list-none grid-cols-1 gap-4 p-0 min-[641px]:grid-cols-2 min-[961px]:grid-cols-3 min-[1121px]:grid-cols-4" id="category-grid"></ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="blog-title" class="px-0 py-16">
+      <div class="mx-auto w-[min(100%-3rem,1120px)]">
+        <div class="mb-8 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+          <h2 class="font-head text-2xl font-semibold leading-[1.3] text-purple min-[641px]:text-[32px]" id="blog-title">From the blogs</h2>
+          <a class="font-medium text-purple hover:text-purple-800" href="blogs.html">View all blogs</a>
+        </div>
+        <div class="grid grid-cols-1 gap-6 min-[641px]:grid-cols-2 min-[961px]:grid-cols-3" id="blog-grid"></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="news-letter-title" class="bg-purple-100 px-0 py-14">
+      <div class="mx-auto w-[min(100%-3rem,1120px)] grid grid-cols-1 items-center gap-10 min-[961px]:grid-cols-2">
+        <div>
+          <h2 class="font-head text-2xl font-semibold leading-[1.3] text-purple min-[641px]:text-[32px]" id="news-letter-title">Get the weekly digest</h2>
+          <p class="mt-2 text-purple-900">One email each Friday with the week's top stories and one blog worth reading.</p>
+        </div>
+        <form id="newsletter-form" novalidate>
+          <div class="grid gap-1.5">
+            <label class="font-body text-sm font-medium text-ink" for="newsletter-email">Email address</label>
+            <div class="flex flex-col gap-3 min-[641px]:flex-row">
+              <input class="min-w-0 flex-1 rounded-[10px] border border-purple-500 bg-white px-3.5 py-3 font-body text-base text-ink" id="newsletter-email" type="email" name="email" autocomplete="email" placeholder="name@example.com" aria-describedby="newsletter-status">
+              <button class="inline-flex items-center justify-center rounded-[10px] border-2 border-transparent px-[22px] py-3 font-body text-base font-medium no-underline cursor-pointer transition-all duration-200 active:translate-y-0 bg-purple text-white hover:-translate-y-0.5 hover:bg-purple-800 hover:shadow-[0_12px_22px_rgba(108,63,160,0.32)]" type="submit">Subscribe</button>
+            </div>
+          </div>
+          <p class="mt-3 text-sm" id="newsletter-status" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="mt-0 bg-navy px-0 pb-7 pt-14 text-white">
+    <div class="mx-auto w-[min(100%-3rem,1120px)]">
+      <div class="grid grid-cols-1 gap-10 min-[641px]:grid-cols-2 min-[961px]:grid-cols-[1.5fr_1fr_1fr]">
+        <div>
+          <a class="brand inline-flex items-center gap-2.5 font-head text-lg font-semibold text-white no-underline hover:text-cyan" href="index.html"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="9" fill="#6C3FA0"/><path d="M7 17h5l3-7 4 12 3-5h3" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="25" cy="17" r="2.2" fill="#4CC9F0"/></svg><span>NewsTech</span></a>
+          <p class="mt-3.5 max-w-[36ch] text-purple-100">Clear technology news and useful blogs for students and technology enthusiasts.</p>
+        </div>
+        <nav aria-label="Explore">
+          <h2 class="mb-3 font-head text-lg font-semibold text-white">Explore</h2>
+          <ul class="m-0 grid list-none gap-2 p-0">
+            <li><a class="text-white no-underline hover:text-cyan hover:underline" href="index.html">Home</a></li>
+            <li><a class="text-white no-underline hover:text-cyan hover:underline" href="news.html">News</a></li>
+            <li><a class="text-white no-underline hover:text-cyan hover:underline" href="blogs.html">Blogs</a></li>
+            <li><a class="text-white no-underline hover:text-cyan hover:underline" href="categories.html">Categories</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="About" class="min-[641px]:col-span-2 min-[961px]:col-span-1">
+          <h2 class="mb-3 font-head text-lg font-semibold text-white">About</h2>
+          <ul class="m-0 grid list-none gap-2 p-0">
+            <li><a class="text-white no-underline hover:text-cyan hover:underline" href="about.html">About us</a></li>
+            <li><a class="text-white no-underline hover:text-cyan hover:underline" href="about.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="mt-10 border-t border-white/[0.14] pt-5 text-sm text-purple-100">&copy; <span data-year>2026</span> NewsTech. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button class="to-top fixed bottom-5 right-5 z-[55] inline-flex h-[46px] w-[46px] translate-y-3 items-center justify-center rounded-full bg-purple text-white opacity-0 pointer-events-none shadow-[0_12px_26px_rgba(23,26,43,0.28)] transition-all duration-200 hover:bg-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan focus-visible:outline-offset-2" id="to-top" type="button" aria-label="Back to top">
+    <svg class="h-5 w-5 fill-none stroke-current stroke-2 [stroke-linecap:round] [stroke-linejoin:round]" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>
