@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NewsTech</title>
+    <meta name="description"
+        content="Short, clear reports on what is changing in AI, gadgets, software, security and science.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Poppins:wght@500;600;700&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="output.css">
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+    <a class="sr-only focus:not-sr-only" href="#main">Skip to main content</a>
+    <header class="border-b bg-white">
+        <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+            <a class="flex items-center gap-3 text-lg font-bold" href="index.html"><svg width="32" height="32"
+                    viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                    <rect width="32" height="32" rx="9" fill="#6C3FA0" />
+                    <path d="M7 17h5l3-7 4 12 3-5h3" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <circle cx="25" cy="17" r="2.2" fill="#4CC9F0" />
+                </svg><span class="text-purple-600">NewsTech</span></a>
+            <button class="rounded-lg p-2 hover:bg-gray-100 md:hidden" type="button" aria-controls="site-nav"
+                aria-expanded="false" aria-label="Menu"><svg class="h-6 w-6" viewBox="0 0 24 24" aria-hidden="true"
+                    focusable="false">
+                    <path d="M4 7h16M4 12h16M4 17h16"
+                    fill="none" stroke="currentColor" stroke-width="2" />
+                </svg></button>
+            <nav class="hidden md:block" id="site-nav" aria-label="Main">
+                <ul class="flex gap-6">
+                    <li><a href="index.html" data-nav="home" class="hover:text-purple-600">Home</a></li>
+                    <li><a href="news.html" data-nav="news" aria-current="page"
+                            class="font-semibold text-purple-600">News</a></li>
+                    <li><a href="blogs.html" data-nav="blogs" class="hover:text-purple-600">Blogs</a></li>
+                    <li><a href="categories.html" data-nav="categories" class="hover:text-purple-600">Categories</a>
+                    </li>
+                    <li><a href="about.html" data-nav="about" class="hover:text-purple-600">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main" data-type="news">
+        <section class="bg-gray-900 px-6 py-12 text-white" aria-labelledby="page-title">
+            <div class="mx-auto max-w-6xl">
+                <h1 id="page-title" class="text-3xl font-bold">Technology news</h1>
+                <p class="mt-3 max-w-2xl text-gray-300">Short, clear reports on what is changing in AI, gadgets,
+                    software, security and science.</p>
+            </div>
+        </section>
+
+        <section class="px-6 py-10" aria-label="News list">
+            <div class="mx-auto max-w-6xl">
+                <div class="mb-5 flex flex-wrap items-end gap-4">
+                    <div class="relative flex-1">
+                        <label class="sr-only" for="search">Search news</label>
+                        <svg class="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-500" viewBox="0 0 24 24"
+                            aria-hidden="true" focusable="false">
+                            <circle cx="11" cy="11" r="7" 
+                            fill="none" stroke="currentColor" stroke-width="2"/>
+                            <path d="M20 20l-4-4"
+                            fill="none" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <input class="w-full rounded-lg border px-4 py-3 pl-10 outline-none focus:border-purple-600"
+                            id="search" type="search" placeholder="Search news by keyword" autocomplete="off">
+                    </div>
+                    <div>
+                        <label for="sort" class="mb-1 block text-sm">Sort by</label>
+                        <select class="rounded-lg border bg-white px-4 py-3" id="sort">
+                            <option value="newest">Newest first</option>
+                            <option value="oldest">Oldest first</option>
+                            <option value="short">Shortest read</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-5 flex flex-wrap gap-2" id="chips" role="group" aria-label="Filter by category"></div>
+                <p class="mb-5 text-sm text-gray-500" id="result-count" role="status"></p>
+                <div id="results" class="grid gap-5"></div>
+                <div class="mt-8 flex justify-center"><button
+                        class="rounded-lg border border-gray-800 px-5 py-2 hover:bg-gray-800 hover:text-white"
+                        type="button" id="show-more" hidden>Show more</button></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 px-6 py-10 text-white">
+        <div class="mx-auto max-w-6xl">
+            <div class="grid gap-8 md:grid-cols-3">
+                <div>
+                    <a class="flex items-center gap-3 text-lg font-bold" href="index.html"><svg width="32" height="32"
+                            viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                            <rect width="32" height="32" rx="9" fill="#6C3FA0" />
+                            <path d="M7 17h5l3-7 4 12 3-5h3" stroke="#fff" stroke-width="2.2" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <circle cx="25" cy="17" r="2.2" fill="#4CC9F0" />
+                        </svg><span class="text-white">NewsTech</span></a>
+                    <p class="mt-3 text-gray-400">Clear technology news and useful blogs for students and technology
+                        enthusiasts.</p>
+                </div>
+                <nav aria-label="Explore">
+                    <h2 class="mb-3 text-lg font-bold">Explore</h2>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html" class="text-white hover:text-white">Home</a></li>
+                        <li><a href="news.html" class="text-white hover:text-white">News</a></li>
+                        <li><a href="blogs.html" class="text-white hover:text-white">Blogs</a></li>
+                        <li><a href="categories.html" class="text-white hover:text-white">Categories</a></li>
+                    </ul>
+                </nav>
+                <nav aria-label="About">
+                    <h2 class="mb-3 text-lg font-bold">About</h2>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="about.html" class="text-white hover:text-white">About us</a></li>
+                        <li><a href="about.html#contact" class="text-white hover:text-white">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <p class="mt-8 border-t border-gray-700 pt-5 text-center text-sm text-gray-500">&copy; <span
+                    data-year>2026</span> NewsTech. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <button id="to-top" type="button" aria-label="Back to top"
+        class="fixed bottom-5 right-5 hidden rounded-full bg-purple-600 p-3 text-white hover:bg-purple-700">
+        <svg class="h-5 w-5" viewBox="0 0 24 24">
+            <path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2" />
+        </svg>
+    </button>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/listing.js"></script>
+</body>
+
+</html>
