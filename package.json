@@ -1,0 +1,17 @@
+{
+  "name": "my-website",
+  "version": "1.0.0",
+  "description": "A responsive multi-page website built with HTML, Tailwind CSS (v4, compiled with @tailwindcss/cli) and vanilla JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss -i src/input.css -o src/output.css --minify",
+    "watch": "tailwindcss -i src/input.css -o src/output.css --watch"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "@tailwindcss/typography": "^0.5.16",
+    "tailwindcss": "^4.3.3"
+  }
+}
