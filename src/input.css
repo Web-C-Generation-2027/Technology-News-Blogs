@@ -2,9 +2,9 @@
 @plugin "@tailwindcss/typography";
 
 /* Design tokens for this project (Tailwind v4 CSS-first config).
-   Anything used in the HTML/JS as a class — bg-navy, text-cyan, font-head,
-   etc. — has to be declared here, or Tailwind has no idea what it means
-   and simply generates no CSS for it. */
+    Anything used in the HTML/JS as a class — bg-navy, text-cyan, font-head,
+    etc. — has to be declared here, or Tailwind has no idea what it means
+      and simply generates no CSS for it. */
 @theme {
   --color-navy: #171A2B;
   --color-purple: #6C3FA0;
@@ -24,10 +24,10 @@
 }
 
 /* Keyframes referenced by the arbitrary animate-[...] utilities in the
-   HTML (e.g. animate-[float-blob_10s_ease-in-out_infinite]). Tailwind
-   will happily generate the "animation:" line for those classes even if
-   no matching @keyframes exists — so without this block the class
-   "works" but visibly does nothing. */
+    HTML (e.g. animate-[float-blob_10s_ease-in-out_infinite]). Tailwind
+    will happily generate the "animation:" line for those classes even if
+    no matching @keyframes exists — so without this block the class
+    "works" but visibly does nothing. */
 @keyframes float-blob {
   0%, 100% { transform: translate(0, 0); }
   50% { transform: translate(-26px, 20px); }

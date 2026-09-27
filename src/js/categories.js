@@ -10,24 +10,18 @@
   var current = CATEGORIES.find(function (c) { return c.slug === selected; });
 
   grid.innerHTML = CATEGORIES.map(function (c) {
-    var count = ARTICLES.filter(function (a) { return a.category === c.slug; }).length;
     var active = current && current.slug === c.slug;
-    return '<li data-reveal><a class="cat-tile cat-tile-large' + (active ? " is-active" : "") + '" href="categories.html?cat=' + c.slug + '#category-results"' +
-      (active ? ' aria-current="true"' : "") + ">" +
-      '<span class="cat-icon">' + icon(c.slug) + "</span>" +
-      '<span class="cat-text"><span class="cat-name">' + esc(c.name) + "</span>" +
-      '<span class="cat-desc">' + esc(c.description) + "</span>" +
-      '<span class="cat-count">' + count + (count === 1 ? " article" : " articles") + "</span></span></a></li>";
+    return catTile(c, { large: true, active: active });
   }).join("");
 
   if (!current) {
-    out.innerHTML = '<p class="hint">Choose a category to see its news and blog posts.</p>';
+    out.innerHTML = '<p class="py-2 text-muted">Choose a category to see its news and blog posts.</p>';
     return;
   }
 
   var list = ARTICLES.filter(function (a) { return a.category === current.slug; }).sort(byNewest);
   document.title = current.name + " | Technology News & Blogs";
-  out.innerHTML = '<h2>' + esc(current.name) + "</h2>" +
-    '<p class="section-intro">' + esc(current.description) + "</p>" +
-    '<div class="news-list">' + list.map(function (a) { return newsRow(a, true); }).join("") + "</div>";
+  out.innerHTML = '<h2 class="mb-1 font-head text-[32px] font-semibold leading-[1.3] text-purple">' + esc(current.name) + "</h2>" +
+    '<p class="mt-1.5 text-muted">' + esc(current.description) + "</p>" +
+    '<div class="mt-7 grid gap-5">' + list.map(function (a) { return newsRow(a, true); }).join("") + "</div>";
 })();

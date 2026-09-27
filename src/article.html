@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blogs | Technology News &amp; Blogs</title>
-  <meta name="description" content="Practical guides and plain-language explainers you can use right away.">
+  <title>Article | Technology News &amp; Blogs</title>
+  <meta name="description" content="Read the full article on Technology News &amp; Blogs.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="output.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="bg-lavender font-body text-base leading-[1.6] text-ink">
+  <div class="fixed inset-x-0 top-0 z-[60] h-1 bg-purple-100" id="progress" aria-hidden="true"><span class="block h-full origin-left scale-x-0 bg-purple"></span></div>
   <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-3 focus:z-[100] focus:rounded-lg focus:bg-purple focus:px-4 focus:py-2.5 focus:text-white" href="#main">Skip to main content</a>
   <header class="sticky top-0 z-50 border-b border-purple-100 bg-white">
     <div class="mx-auto flex h-[68px] w-[min(100%-3rem,1120px)] items-center justify-between">
@@ -22,42 +23,22 @@
         <ul class="m-0 flex list-none flex-col gap-0 p-0 min-[821px]:flex-row min-[821px]:items-center min-[821px]:gap-7">
         <li><a class="block border-b-2 border-transparent px-0 py-3 font-body text-base font-medium text-ink no-underline hover:border-cyan hover:text-purple aria-[current=page]:border-purple aria-[current=page]:text-purple min-[821px]:inline-block min-[821px]:py-1.5" href="index.html" data-nav="home">Home</a></li>
         <li><a class="block border-b-2 border-transparent px-0 py-3 font-body text-base font-medium text-ink no-underline hover:border-cyan hover:text-purple aria-[current=page]:border-purple aria-[current=page]:text-purple min-[821px]:inline-block min-[821px]:py-1.5" href="news.html" data-nav="news">News</a></li>
-        <li><a class="block border-b-2 border-transparent px-0 py-3 font-body text-base font-medium text-ink no-underline hover:border-cyan hover:text-purple aria-[current=page]:border-purple aria-[current=page]:text-purple min-[821px]:inline-block min-[821px]:py-1.5" href="blogs.html" data-nav="blogs" aria-current="page">Blogs</a></li>
+        <li><a class="block border-b-2 border-transparent px-0 py-3 font-body text-base font-medium text-ink no-underline hover:border-cyan hover:text-purple aria-[current=page]:border-purple aria-[current=page]:text-purple min-[821px]:inline-block min-[821px]:py-1.5" href="blogs.html" data-nav="blogs">Blogs</a></li>
         <li><a class="block border-b-2 border-transparent px-0 py-3 font-body text-base font-medium text-ink no-underline hover:border-cyan hover:text-purple aria-[current=page]:border-purple aria-[current=page]:text-purple min-[821px]:inline-block min-[821px]:py-1.5" href="categories.html" data-nav="categories">Categories</a></li>
         <li><a class="block border-b-2 border-transparent px-0 py-3 font-body text-base font-medium text-ink no-underline hover:border-cyan hover:text-purple aria-[current=page]:border-purple aria-[current=page]:text-purple min-[821px]:inline-block min-[821px]:py-1.5" href="about.html" data-nav="about">About</a></li>
         </ul>
       </nav>
     </div>
   </header>
-  <main id="main" data-type="blog">
-    <section class="bg-navy px-0 pb-14 pt-12 text-white">
-      <div class="mx-auto w-[min(100%-3rem,1120px)]">
-        <h1 class="[animation:hero-in_.5s_ease_both] font-head text-[28px] font-bold leading-[1.2] text-white min-[641px]:text-[32px]" id="page-title">Technology blogs</h1>
-        <p class="[animation:hero-in_.5s_ease_both] [animation-delay:80ms] mt-3 max-w-[60ch] text-purple-100">Practical guides and plain-language explainers you can use right away.</p>
-      </div>
-    </section>
+  <main id="main">
+    <article class="mx-auto w-[min(100%-3rem,760px)] px-0 py-8 pb-16" id="article-root">
+      <noscript><p>This page needs JavaScript to load the article.</p></noscript>
+    </article>
 
-    <section aria-label="Blogs list" class="px-0 py-16">
+    <section class="bg-white px-0 py-16" id="related" aria-labelledby="related-title" hidden>
       <div class="mx-auto w-[min(100%-3rem,1120px)]">
-        <div class="mb-5 flex flex-wrap items-end gap-4">
-          <div class="relative min-w-[280px] flex-1">
-            <label class="sr-only" for="search">Search blogs</label>
-            <svg class="pointer-events-none absolute left-3.5 top-1/2 h-[18px] w-[18px] -translate-y-1/2 fill-none stroke-current stroke-2 text-purple [stroke-linecap:round] [stroke-linejoin:round]" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
-            <input class="w-full rounded-[10px] border border-purple-500 bg-white py-3 pl-[42px] pr-3.5 font-body text-base text-ink" id="search" type="search" placeholder="Search blogs by keyword" autocomplete="off">
-          </div>
-          <div class="grid gap-1.5">
-            <label class="font-body text-sm font-medium text-ink" for="sort">Sort by</label>
-            <select class="w-auto min-w-[180px] rounded-[10px] border border-purple-500 bg-white px-3.5 py-3 font-body text-base text-ink" id="sort">
-              <option value="newest">Newest first</option>
-              <option value="oldest">Oldest first</option>
-              <option value="short">Shortest read</option>
-            </select>
-          </div>
-        </div>
-        <div class="mb-5 flex flex-wrap gap-2" id="chips" role="group" aria-label="Filter by category"></div>
-        <p class="mb-5 text-sm text-muted" id="result-count" role="status"></p>
-        <div class="grid grid-cols-1 gap-6 min-[641px]:grid-cols-2 min-[961px]:grid-cols-3" id="results"></div>
-        <div class="mt-8 flex justify-center"><button class="inline-flex items-center justify-center rounded-[10px] border-2 px-[22px] py-3 font-body text-base font-medium no-underline cursor-pointer transition-all duration-200 active:translate-y-0 border-purple text-purple bg-transparent hover:-translate-y-0.5 hover:bg-purple-100" type="button" id="show-more" hidden>Show more</button></div>
+        <div class="mb-8"><h2 class="font-head text-2xl font-semibold leading-[1.3] text-purple" id="related-title">Keep reading</h2></div>
+        <div class="grid grid-cols-1 gap-6 min-[641px]:grid-cols-2 min-[961px]:grid-cols-3" id="related-grid"></div>
       </div>
     </section>
 
@@ -97,6 +78,6 @@
 
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/listing.js"></script>
+  <script src="js/article.js"></script>
 </body>
 </html>

@@ -1,7 +1,8 @@
 /*
   main.js
-  Shared by every page: helpers, icons, cover artwork, card templates,
-  the mobile menu and the footer year. Needs data.js to be loaded first.
+  Shared by every page: helpers, icons, cover artwork, card templates
+  (built with Tailwind utility classes), the mobile menu and footer year.
+  Needs data.js to be loaded first, and Tailwind (via CDN) loaded in <head>.
 */
 
 /* ---------- Helpers ---------- */
@@ -41,7 +42,11 @@ function articleUrl(a) {
   return "article.html?id=" + encodeURIComponent(a.id);
 }
 
-/* ---------- Icons ---------- */
+/* ---------- Icons ----------
+   Every icon renders at 16x16 by default. Where a bigger icon is needed
+   (category tiles, feature tiles, the search box, back-to-top) the wrapper
+   span overrides the size with an arbitrary child-selector utility, e.g.
+   "[&>svg]:w-6 [&>svg]:h-6", so this helper can stay a single shared function. */
 
 const ICON_PATHS = {
   ai: '<rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/>',
@@ -58,11 +63,14 @@ const ICON_PATHS = {
   layers: '<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/>',
   article: '<path d="M6 3h9l4 4v14H6z"/><path d="M15 3v5h4"/><path d="M9 12h6M9 16h6"/>',
   compass: '<circle cx="12" cy="12" r="9"/><path d="M15 9l-2 5-5 2 2-5z"/>',
-  devices: '<rect x="2" y="4" width="15" height="11" rx="1.5"/><path d="M2 18h15"/><rect x="18" y="9" width="4" height="9" rx="1"/>'
+  devices: '<rect x="2" y="4" width="15" height="11" rx="1.5"/><path d="M2 18h15"/><rect x="18" y="9" width="4" height="9" rx="1"/>',
+  menu: '<path d="M4 7h16M4 12h16M4 17h16"/>',
+  search: '<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>',
+  up: '<path d="M12 19V5M5 12l7-7 7 7"/>'
 };
 
 function icon(name) {
-  return '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+  return '<svg class="w-4 h-4 shrink-0 fill-none stroke-current stroke-2 [stroke-linecap:round] [stroke-linejoin:round]" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
     (ICON_PATHS[name] || "") + "</svg>";
 }
 
@@ -192,54 +200,90 @@ function coverSVG(a) {
   return '<svg viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">' + s + "</svg>";
 }
 
-/* ---------- Card templates ---------- */
+/* ---------- Card templates (Tailwind utility classes) ----------
+   Every reveal-able element shares the same "hidden" baseline
+   (opacity-0 translate-y-6) so the scroll-reveal script below can turn
+   them all visible the same way, whatever page rendered them. */
+
+var REVEAL_HIDDEN = "opacity-0 translate-y-6";
+var STRETCH_LINK = 'after:content-[\'\'] after:absolute after:inset-0';
+var TITLE_LINK = 'text-ink no-underline ' + STRETCH_LINK +
+  ' group-hover:underline group-hover:decoration-cyan group-hover:decoration-2 group-hover:underline-offset-4';
+var BTN_BASE = "inline-flex items-center justify-center rounded-[10px] border-2 border-transparent px-[22px] py-3 font-body text-base font-medium no-underline cursor-pointer transition-all duration-200 active:translate-y-0";
+var BTN_PRIMARY = BTN_BASE + " bg-purple text-white hover:-translate-y-0.5 hover:bg-purple-800 hover:shadow-[0_12px_22px_rgba(108,63,160,0.32)]";
+var BTN_OUTLINE_DARK = BTN_BASE + " border-purple text-purple bg-transparent hover:-translate-y-0.5 hover:bg-purple-100";
+var EMPTY_STATE = "grid justify-items-center gap-3 rounded-2xl border border-dashed border-purple-500 bg-white px-6 py-10 text-center";
 
 function metaHTML(a) {
-  return '<div class="meta">' +
-    '<span class="meta-item">' + icon("user") + "By " + esc(a.author) + "</span>" +
-    '<span class="meta-item">' + esc(formatDate(a.date)) + "</span>" +
-    '<span class="meta-item">' + icon("clock") + readMinutes(a) + " min read</span>" +
+  return '<div class="flex flex-wrap gap-x-[18px] gap-y-0.5 text-sm leading-[1.6] text-muted">' +
+    '<span class="inline-flex items-center gap-1.5">' + icon("user") + "By " + esc(a.author) + "</span>" +
+    '<span class="inline-flex items-center gap-1.5">' + esc(formatDate(a.date)) + "</span>" +
+    '<span class="inline-flex items-center gap-1.5">' + icon("clock") + readMinutes(a) + " min read</span>" +
     "</div>";
 }
 
 function pillHTML(a, showType) {
-  var html = '<span class="pill">' + esc(categoryOf(a.category).name) + "</span>";
+  var html = '<span class="inline-block rounded-full bg-purple-300 px-3 py-[5px] font-body text-sm font-medium text-purple-900">' +
+    esc(categoryOf(a.category).name) + "</span>";
   if (showType) {
-    html += ' <span class="pill pill-outline">' + (a.type === "blog" ? "Blog" : "News") + "</span>";
+    html += ' <span class="inline-block rounded-full border border-purple-500 px-[11px] py-1 font-body text-sm text-purple-800">' +
+      (a.type === "blog" ? "Blog" : "News") + "</span>";
   }
   return html;
 }
 
 /* Vertical card: cover on top. Used for blogs, related articles and the featured story. */
 function articleCard(a, extraClass) {
-  return '<article class="card ' + (extraClass || "") + '" data-reveal>' +
-    '<div class="cover">' + coverSVG(a) + "</div>" +
-    '<div class="card-body">' +
+  return '<article class="group relative flex flex-col overflow-hidden rounded-2xl border border-purple-100 bg-white transition-all duration-500 ease-out ' + REVEAL_HIDDEN +
+    ' hover:border-cyan hover:-translate-y-1.5 hover:shadow-[0_20px_36px_rgba(23,26,43,0.12)] [transition-delay:calc(var(--i,0)*70ms)] ' + (extraClass || "") + '" data-reveal>' +
+    '<div class="aspect-video overflow-hidden rounded-t-[15px] bg-navy [&>svg]:block [&>svg]:h-full [&>svg]:w-full [&>svg]:transition-transform [&>svg]:duration-500 group-hover:[&>svg]:scale-[1.07]">' + coverSVG(a) + "</div>" +
+    '<div class="flex flex-1 flex-col items-start gap-3 px-[22px] pb-[22px] pt-5">' +
     "<div>" + pillHTML(a) + "</div>" +
-    '<h3><a class="stretched" href="' + articleUrl(a) + '">' + esc(a.title) + "</a></h3>" +
-    "<p>" + esc(a.excerpt) + "</p>" +
+    '<h3 class="font-head text-2xl font-semibold leading-[1.4]"><a class="' + TITLE_LINK + '" href="' + articleUrl(a) + '">' + esc(a.title) + "</a></h3>" +
+    '<p class="text-muted">' + esc(a.excerpt) + "</p>" +
     metaHTML(a) +
     "</div></article>";
 }
 
 /* Horizontal row: cover on the left. Used for news lists. */
 function newsRow(a, showType) {
-  return '<article class="row" data-reveal>' +
-    '<div class="cover">' + coverSVG(a) + "</div>" +
-    '<div class="row-body">' +
+  return '<article class="group relative grid grid-cols-1 gap-0 overflow-hidden rounded-2xl border border-purple-100 bg-white transition-all duration-500 ease-out ' + REVEAL_HIDDEN +
+    ' hover:border-cyan hover:-translate-y-1 hover:shadow-[0_16px_30px_rgba(23,26,43,0.1)] [transition-delay:calc(var(--i,0)*70ms)] min-[641px]:grid-cols-[240px_minmax(0,1fr)] min-[641px]:gap-6" data-reveal>' +
+    '<div class="aspect-video overflow-hidden rounded-t-2xl bg-navy [&>svg]:block [&>svg]:h-full [&>svg]:w-full [&>svg]:transition-transform [&>svg]:duration-500 group-hover:[&>svg]:scale-[1.07] min-[641px]:aspect-auto min-[641px]:min-h-[160px] min-[641px]:rounded-l-2xl min-[641px]:rounded-tr-none">' + coverSVG(a) + "</div>" +
+    '<div class="flex flex-col items-start gap-2.5 p-5 pt-4 min-[641px]:pl-0 min-[641px]:pt-5">' +
     "<div>" + pillHTML(a, showType) + "</div>" +
-    '<h3><a class="stretched" href="' + articleUrl(a) + '">' + esc(a.title) + "</a></h3>" +
-    "<p>" + esc(a.excerpt) + "</p>" +
+    '<h3 class="font-head text-2xl font-semibold leading-[1.4]"><a class="' + TITLE_LINK + '" href="' + articleUrl(a) + '">' + esc(a.title) + "</a></h3>" +
+    '<p class="text-muted">' + esc(a.excerpt) + "</p>" +
     metaHTML(a) +
     "</div></article>";
 }
 
 /* Short text-only row. Used for the side list on the home page. */
 function compactRow(a) {
-  return '<li class="compact" data-reveal>' +
-    '<span class="compact-cat">' + esc(categoryOf(a.category).name) + "</span>" +
-    '<h3 class="compact-title"><a class="stretched" href="' + articleUrl(a) + '">' + esc(a.title) + "</a></h3>" +
-    '<span class="compact-date">' + esc(formatDate(a.date)) + "</span></li>";
+  return '<li class="group relative -ml-[19px] grid gap-0.5 border-b border-l-[3px] border-l-transparent border-purple-100 py-4 pl-4 transition-all duration-500 ' + REVEAL_HIDDEN +
+    ' last:border-b-0 hover:border-l-cyan [transition-delay:calc(var(--i,0)*70ms)]" data-reveal>' +
+    '<span class="text-sm text-muted">' + esc(categoryOf(a.category).name) + "</span>" +
+    '<h3 class="text-lg leading-[1.4]"><a class="' + TITLE_LINK + '" href="' + articleUrl(a) + '">' + esc(a.title) + "</a></h3>" +
+    '<span class="text-sm text-muted">' + esc(formatDate(a.date)) + "</span></li>";
+}
+
+/* Category tile: used on the home page and the categories page. */
+function catTile(c, opts) {
+  opts = opts || {};
+  var count = ARTICLES.filter(function (a) { return a.category === c.slug; }).length;
+  var large = opts.large;
+  var active = opts.active;
+  var href = "categories.html?cat=" + c.slug + (large ? "#category-results" : "");
+  return '<li data-reveal class="' + REVEAL_HIDDEN + ' transition-all duration-500 [transition-delay:calc(var(--i,0)*70ms)]">' +
+    '<a class="group flex h-full items-center gap-3.5 rounded-2xl border bg-white px-[18px] py-4 text-ink no-underline transition-all duration-300 hover:-translate-y-1 hover:border-cyan hover:shadow-[0_14px_26px_rgba(23,26,43,0.1)] ' +
+    (active ? "border-purple ring-1 ring-inset ring-purple " : "border-purple-100 ") +
+    (large ? "items-start p-5 " : "") + '" href="' + href + '"' + (active ? ' aria-current="true"' : "") + ">" +
+    '<span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-navy text-cyan transition-transform duration-300 group-hover:-rotate-[8deg] group-hover:scale-[1.08] group-hover:bg-purple [&>svg]:w-[22px] [&>svg]:h-[22px]">' + icon(c.slug) + "</span>" +
+    '<span class="grid gap-0.5">' +
+    '<span class="font-head text-lg font-semibold leading-[1.4] text-purple">' + esc(c.name) + "</span>" +
+    (large ? '<span class="text-sm text-muted">' + esc(c.description) + "</span>" : "") +
+    '<span class="text-sm text-muted">' + count + (count === 1 ? " article" : " articles") + "</span>" +
+    "</span></a></li>";
 }
 
 /* ---------- Shared behaviour ---------- */
@@ -250,14 +294,14 @@ function compactRow(a) {
 
   if (toggle && nav) {
     var setOpen = function (open) {
-      nav.classList.toggle("is-open", open);
+      nav.classList.toggle("hidden", !open);
       toggle.setAttribute("aria-expanded", String(open));
     };
     toggle.addEventListener("click", function () {
-      setOpen(!nav.classList.contains("is-open"));
+      setOpen(nav.classList.contains("hidden"));
     });
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && nav.classList.contains("is-open")) {
+      if (e.key === "Escape" && !nav.classList.contains("hidden")) {
         setOpen(false);
         toggle.focus();
       }
@@ -290,26 +334,30 @@ function animateCount(el) {
 }
 
 /* ---------- Scroll reveal ----------
-   Elements marked [data-reveal] fade and slide into place the first time
-   they enter the viewport. New elements injected later (cards, rows,
-   category tiles rendered by each page's script) are picked up automatically. */
+   Elements marked [data-reveal] start with the Tailwind classes
+   "opacity-0 translate-y-6" and swap to "opacity-100 translate-y-0" the
+   first time they enter the viewport. New elements injected later (cards,
+   rows, category tiles rendered by each page's script) are picked up
+   automatically via MutationObserver. */
+function revealElement(el) {
+  el.classList.remove("opacity-0", "translate-y-6");
+  el.classList.add("opacity-100", "translate-y-0");
+  el.querySelectorAll("[data-count-to]").forEach(animateCount);
+}
+
 (function () {
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var supportsIO = "IntersectionObserver" in window;
 
   if (reduceMotion || !supportsIO) {
-    document.querySelectorAll("[data-reveal]").forEach(function (el) {
-      el.classList.add("is-visible");
-      el.querySelectorAll("[data-count-to]").forEach(animateCount);
-    });
+    document.querySelectorAll("[data-reveal]").forEach(revealElement);
     return;
   }
 
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (!entry.isIntersecting) return;
-      entry.target.classList.add("is-visible");
-      entry.target.querySelectorAll("[data-count-to]").forEach(animateCount);
+      revealElement(entry.target);
       io.unobserve(entry.target);
     });
   }, { threshold: 0.12, rootMargin: "0px 0px -10% 0px" });
@@ -336,8 +384,16 @@ function animateCount(el) {
 (function () {
   var btn = document.getElementById("to-top");
   if (!btn) return;
+  var show = function () {
+    btn.classList.remove("opacity-0", "translate-y-3", "pointer-events-none");
+    btn.classList.add("opacity-100", "translate-y-0", "pointer-events-auto");
+  };
+  var hide = function () {
+    btn.classList.add("opacity-0", "translate-y-3", "pointer-events-none");
+    btn.classList.remove("opacity-100", "translate-y-0", "pointer-events-auto");
+  };
   window.addEventListener("scroll", function () {
-    btn.classList.toggle("is-visible", window.scrollY > 480);
+    if (window.scrollY > 480) show(); else hide();
   }, { passive: true });
   btn.addEventListener("click", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
