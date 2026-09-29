@@ -4,6 +4,9 @@
   category tiles, latest blogs, the stats strip and the newsletter form.
 */
 (function () {
+  /* Paste your Formspree URL for the newsletter form here, e.g. https://formspree.io/f/abcdwxyz */
+  var NEWSLETTER_ENDPOINT = "https://formspree.io/f/mljdardv";
+
   var news = ARTICLES.filter(function (a) { return a.type === "news"; }).sort(byNewest);
   var blogs = ARTICLES.filter(function (a) { return a.type === "blog"; }).sort(byNewest);
 
@@ -62,8 +65,26 @@
       return;
     }
     input.removeAttribute("aria-invalid");
-    status.className = "mt-3 text-sm font-medium text-purple-900";
-    status.textContent = "Thanks for subscribing. Your first digest arrives this Friday.";
-    form.reset();
+
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    status.className = "mt-3 text-sm text-muted";
+    status.textContent = "Subscribing...";
+
+    fetch(NEWSLETTER_ENDPOINT, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" }
+    }).then(function (res) {
+      if (!res.ok) throw new Error("Request failed");
+      status.className = "mt-3 text-sm font-medium text-purple-900";
+      status.textContent = "Thanks for subscribing!";
+      form.reset();
+    }).catch(function () {
+      status.className = "mt-3 text-sm text-err";
+      status.textContent = "Sorry, we could not subscribe you right now. Please try again later.";
+    }).then(function () {
+      btn.disabled = false;
+    });
   });
 })();

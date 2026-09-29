@@ -200,6 +200,17 @@ function coverSVG(a) {
   return '<svg viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">' + s + "</svg>";
 }
 
+/* ---------- Cover image ----------
+   If an article has an "image" field in data.js, use that real photo
+   instead of the generated SVG artwork. Leave "image" out (or set it to
+   "") to keep the generated cover for that article. */
+function coverMedia(a) {
+  if (a.image) {
+    return '<img src="' + esc(a.image) + '" alt="" loading="lazy">';
+  }
+  return coverSVG(a);
+}
+
 /* ---------- Card templates (Tailwind utility classes) ----------
    Every reveal-able element shares the same "hidden" baseline
    (opacity-0 translate-y-6) so the scroll-reveal script below can turn
@@ -236,7 +247,7 @@ function pillHTML(a, showType) {
 function articleCard(a, extraClass) {
   return '<article class="group relative flex flex-col overflow-hidden rounded-2xl border border-purple-100 bg-white transition-all duration-500 ease-out ' + REVEAL_HIDDEN +
     ' hover:border-cyan hover:-translate-y-1.5 hover:shadow-[0_20px_36px_rgba(23,26,43,0.12)] [transition-delay:calc(var(--i,0)*70ms)] ' + (extraClass || "") + '" data-reveal>' +
-    '<div class="aspect-video overflow-hidden rounded-t-[15px] bg-navy [&>svg]:block [&>svg]:h-full [&>svg]:w-full [&>svg]:transition-transform [&>svg]:duration-500 group-hover:[&>svg]:scale-[1.07]">' + coverSVG(a) + "</div>" +
+    '<div class="aspect-video overflow-hidden rounded-t-[15px] bg-navy [&>svg]:block [&>svg]:h-full [&>svg]:w-full [&>svg]:transition-transform [&>svg]:duration-500 group-hover:[&>svg]:scale-[1.07] [&>img]:block [&>img]:h-full [&>img]:w-full [&>img]:object-cover [&>img]:transition-transform [&>img]:duration-500 group-hover:[&>img]:scale-[1.07]">' + coverMedia(a) + "</div>" +
     '<div class="flex flex-1 flex-col items-start gap-3 px-[22px] pb-[22px] pt-5">' +
     "<div>" + pillHTML(a) + "</div>" +
     '<h3 class="font-head text-2xl font-semibold leading-[1.4]"><a class="' + TITLE_LINK + '" href="' + articleUrl(a) + '">' + esc(a.title) + "</a></h3>" +
@@ -249,7 +260,7 @@ function articleCard(a, extraClass) {
 function newsRow(a, showType) {
   return '<article class="group relative grid grid-cols-1 gap-0 overflow-hidden rounded-2xl border border-purple-100 bg-white transition-all duration-500 ease-out ' + REVEAL_HIDDEN +
     ' hover:border-cyan hover:-translate-y-1 hover:shadow-[0_16px_30px_rgba(23,26,43,0.1)] [transition-delay:calc(var(--i,0)*70ms)] min-[641px]:grid-cols-[240px_minmax(0,1fr)] min-[641px]:gap-6" data-reveal>' +
-    '<div class="aspect-video overflow-hidden rounded-t-2xl bg-navy [&>svg]:block [&>svg]:h-full [&>svg]:w-full [&>svg]:transition-transform [&>svg]:duration-500 group-hover:[&>svg]:scale-[1.07] min-[641px]:aspect-auto min-[641px]:min-h-[160px] min-[641px]:rounded-l-2xl min-[641px]:rounded-tr-none">' + coverSVG(a) + "</div>" +
+    '<div class="aspect-video overflow-hidden rounded-t-2xl bg-navy [&>svg]:block [&>svg]:h-full [&>svg]:w-full [&>svg]:transition-transform [&>svg]:duration-500 group-hover:[&>svg]:scale-[1.07] [&>img]:block [&>img]:h-full [&>img]:w-full [&>img]:object-cover [&>img]:transition-transform [&>img]:duration-500 group-hover:[&>img]:scale-[1.07] min-[641px]:aspect-auto min-[641px]:min-h-[160px] min-[641px]:rounded-l-2xl min-[641px]:rounded-tr-none">' + coverMedia(a) + "</div>" +
     '<div class="flex flex-col items-start gap-2.5 p-5 pt-4 min-[641px]:pl-0 min-[641px]:pt-5">' +
     "<div>" + pillHTML(a, showType) + "</div>" +
     '<h3 class="font-head text-2xl font-semibold leading-[1.4]"><a class="' + TITLE_LINK + '" href="' + articleUrl(a) + '">' + esc(a.title) + "</a></h3>" +

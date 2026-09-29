@@ -20,7 +20,7 @@
   }
 
   var list = ARTICLES.filter(function (a) { return a.category === current.slug; }).sort(byNewest);
-  document.title = current.name + " | Technology News & Blogs";
+  document.title = current.name + " | NewsTech";
   out.innerHTML = '<h2 class="mb-1 font-head text-[32px] font-semibold leading-[1.3] text-purple">' + esc(current.name) + "</h2>" +
     '<p class="mt-1.5 text-muted">' + esc(current.description) + "</p>" +
     '<div class="mt-7 grid gap-5">' + list.map(function (a) { return newsRow(a, true); }).join("") + "</div>";

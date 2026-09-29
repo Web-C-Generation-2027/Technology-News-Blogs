@@ -9,7 +9,7 @@
   var a = ARTICLES.find(function (x) { return x.id === id; });
 
   if (!a) {
-    document.title = "Article not found | Technology News & Blogs";
+    document.title = "Article not found | NewsTech";
     root.innerHTML = '<div class="' + EMPTY_STATE + '"><h1 class="text-2xl leading-[1.4]">Article not found</h1>' +
       '<p class="max-w-[46ch] text-muted">The article you are looking for does not exist or has moved. Browse the latest stories instead.</p>' +
       '<div class="flex flex-wrap justify-center gap-3"><a class="' + BTN_PRIMARY + '" href="news.html">Go to news</a>' +
@@ -20,7 +20,7 @@
   var isBlog = a.type === "blog";
   var section = isBlog ? { label: "Blogs", url: "blogs.html" } : { label: "News", url: "news.html" };
 
-  document.title = a.title + " | Technology News & Blogs";
+  document.title = a.title + " | NewsTech";
   var desc = document.querySelector('meta[name="description"]');
   if (desc) desc.setAttribute("content", a.excerpt);
 
@@ -48,7 +48,7 @@
     '<p class="max-w-[64ch] text-base text-muted">' + esc(a.excerpt) + "</p>" +
     metaHTML(a) +
     "</header>" +
-    '<div class="mb-9 aspect-video overflow-hidden rounded-2xl bg-navy [&>svg]:block [&>svg]:h-full [&>svg]:w-full">' + coverSVG(a) + "</div>" +
+    '<div class="mb-9 aspect-video overflow-hidden rounded-2xl bg-navy [&>svg]:block [&>svg]:h-full [&>svg]:w-full [&>img]:block [&>img]:h-full [&>img]:w-full [&>img]:object-cover">' + coverMedia(a) + "</div>" +
     '<div class="prose prose-slate max-w-[640px] prose-headings:font-head prose-headings:text-ink prose-h2:mb-2 prose-h2:mt-8 prose-h2:text-2xl prose-p:text-ink prose-a:text-purple prose-li:marker:text-purple" id="article-body">' + body + "</div>" +
     '<footer class="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-purple-100 pt-6">' +
     '<ul class="flex flex-wrap gap-2" aria-label="Tags">' + a.tags.map(function (t) { return '<li class="rounded-full border border-purple-300 bg-white px-3 py-1 text-sm text-purple-800">' + esc(t) + "</li>"; }).join("") + "</ul>" +
