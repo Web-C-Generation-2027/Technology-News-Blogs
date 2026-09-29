@@ -497,7 +497,7 @@ const ARTICLES = [
   },
   {
     id: "claude-ai",
-    image: "images/claude-ai.jpg",
+    image: "images/claude-clear.jpg",
     type: "blog",
     category: "ai",
     title: "Claude can help manage your email inbox, but there are some risks involved",
