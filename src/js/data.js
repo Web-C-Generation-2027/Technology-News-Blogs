@@ -49,7 +49,7 @@ const ARTICLES = [
   },
   {
     id: "never-use-chatgpt",
-    image: "images/chapel.jpg",
+    image: "images/ai-chapel.jpg",
     type: "news",
     category: "ai",
     title: "OpenAI's agent hacked into an Australian government website",
@@ -120,7 +120,7 @@ const ARTICLES = [
   },
   {
     id: "gg-watch",
-    image: "images/gadgets-watch.jpg",
+    image: "images/gg-watch.jpg",
     type: "news",
     category: "gadgets",
     title: "Google Health 5.09 rolling out: Cardio Load from third-party workouts, more",
@@ -152,7 +152,7 @@ const ARTICLES = [
   },
   {
     id: "gg-lenovo",
-    image: "images/gadgets-pc.jpg",
+    image: "images/gg-lenovo.jpg",
     type: "news",
     category: "gadgets",
     title: "Lenovo ThinkCentre Neo 50a Gen 7 Puts a 27-Inch Work PC Into the Space of a Monitor",
@@ -174,7 +174,7 @@ const ARTICLES = [
   },
   {
     id: "gg-phone",
-    image: "images/gadgets-phone.jpg",
+    image: "images/gg-phone.jpg",
     type: "news",
     category: "gadgets",
     title: "Dreame L10s Ultra",
@@ -189,7 +189,7 @@ const ARTICLES = [
   },
   {
     id: "gg-mmm",
-    image: "images/gadgets-mmm.jpg",
+    image: "images/gg-mmm.jpg",
     type: "news",
     category: "gadgets",
     title: "Meta Unveils AI Gadgets Including Tamagotchi-Like Pendant amid Growing Concerns Over the Technology",
