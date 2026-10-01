@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" data-base="../">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Letting Claude run your Gmail inbox: what it can do and the risks</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <meta name="description" content="AI can now reply, send and forward email for you, which makes careful settings important.">
+  <!-- seo:start -->
+  <link rel="canonical" href="https://newstech-six.vercel.app/articles/claude-ai.html">
+  <meta property="og:site_name" content="NewsTech">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Letting Claude run your Gmail inbox: what it can do and the risks">
+  <meta property="og:description" content="AI can now reply, send and forward email for you, which makes careful settings important.">
+  <meta property="og:url" content="https://newstech-six.vercel.app/articles/claude-ai.html">
+  <meta property="og:image" content="https://newstech-six.vercel.app/images/claude-clear.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Letting Claude run your Gmail inbox: what it can do and the risks">
+  <meta name="twitter:description" content="AI can now reply, send and forward email for you, which makes careful settings important.">
+  <meta name="twitter:image" content="https://newstech-six.vercel.app/images/claude-clear.jpg">
+  <meta name="theme-color" content="#6C3FA0">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Letting Claude run your Gmail inbox: what it can do and the risks","description":"AI can now reply, send and forward email for you, which makes careful settings important.","image":["https://newstech-six.vercel.app/images/claude-clear.jpg"],"datePublished":"2026-09-06","author":{"@type":"Organization","name":"NewsTech Team"},"publisher":{"@type":"Organization","name":"NewsTech","url":"https://newstech-six.vercel.app/"},"mainEntityOfPage":"https://newstech-six.vercel.app/articles/claude-ai.html","articleSection":"AI","keywords":"Claude, AI agents, Privacy","inLanguage":"en"}</script>
+  <!-- seo:end -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../output.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-lavender font-body text-base leading-[1.6] text-ink">
+  <div class="fixed inset-x-0 top-0 z-[60] h-1 bg-purple-100" id="progress" aria-hidden="true"><span class="block h-full origin-left scale-x-0 bg-purple"></span></div>
+  <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-3 focus:z-[100] focus:rounded-lg focus:bg-purple focus:px-4 focus:py-2.5 focus:text-white" href="#main">Skip to main content</a>
+  <header class="sticky top-0 z-50 border-b border-purple-100 bg-white">
+    <div class="mx-auto flex h-[68px] w-[min(100%-3rem,1120px)] items-center justify-between">
+      <a class="brand inline-flex items-center gap-2.5 font-head text-lg font-semibold text-purple no-underline hover:text-purple-800" href="../index.html"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="9" fill="#6C3FA0"/><path d="M7 17h5l3-7 4 12 3-5h3" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="25" cy="17" r="2.2" fill="#4CC9F0"/></svg><span>NewsTech</span></a>
+      <button class="nav-toggle inline-flex h-11 w-11 items-center justify-center rounded-[10px] border border-purple-100 text-purple min-[821px]:hidden" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
+        <svg class="h-[22px] w-[22px] fill-none stroke-current stroke-2 [stroke-linecap:round] [stroke-linejoin:round]" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="hidden absolute inset-x-0 top-full border-b border-purple-100 bg-white px-6 pb-4 pt-2 min-[821px]:static min-[821px]:flex min-[821px]:border-0 min-[821px]:bg-transparent min-[821px]:p-0" id="site-nav" aria-label="Main">
+        <ul class="m-0 flex list-none flex-col gap-0 p-0 min-[821px]:flex-row min-[821px]:items-center min-[821px]:gap-7">
+        <li><a class="block border-b-2 border-transparent px-0 py-3 font-body text-base font-medium text-ink no-underline hover:border-cyan hover:text-purple aria-[current=page]:border-purple aria-[current=page]:text-purple min-[821px]:inline-block min-[821px]:py-1.5" href="../index.html" data-nav="home">Home</a></li>
+        <li><a class="block border-b-2 border-transparent px-0 py-3 font-body text-base font-medium text-ink no-underline hover:border-cyan hover:text-purple aria-[current=page]:border-purple aria-[current=page]:text-purple min-[821px]:inline-block min-[821px]:py-1.5" href="../news.html" data-nav="news">News</a></li>
+        <li><a class="block border-b-2 border-transparent px-0 py-3 font-body text-base font-medium text-ink no-underline hover:border-cyan hover:text-purple aria-[current=page]:border-purple aria-[current=page]:text-purple min-[821px]:inline-block min-[821px]:py-1.5" href="../blogs.html" data-nav="blogs">Blogs</a></li>
+        <li><a class="block border-b-2 border-transparent px-0 py-3 font-body text-base font-medium text-ink no-underline hover:border-cyan hover:text-purple aria-[current=page]:border-purple aria-[current=page]:text-purple min-[821px]:inline-block min-[821px]:py-1.5" href="../categories.html" data-nav="categories">Categories</a></li>
+        <li><a class="block border-b-2 border-transparent px-0 py-3 font-body text-base font-medium text-ink no-underline hover:border-cyan hover:text-purple aria-[current=page]:border-purple aria-[current=page]:text-purple min-[821px]:inline-block min-[821px]:py-1.5" href="../about.html" data-nav="about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <article class="mx-auto w-[min(100%-3rem,760px)] px-0 py-8 pb-16" id="article-root" data-id="claude-ai"><nav class="mb-7" aria-label="Breadcrumb"><ol class="flex flex-wrap gap-x-0 gap-y-1 text-sm text-muted"><li><a class="hover:text-purple" href="../index.html">Home</a></li><li class="before:mr-2.5 before:ml-2.5 before:text-purple-300 before:content-['/']"><a class="hover:text-purple" href="../blogs.html">Blogs</a></li><li class="before:mr-2.5 before:ml-2.5 before:text-purple-300 before:content-['/']"><a class="hover:text-purple" href="../categories.html?cat=ai">AI</a></li></ol></nav><header class="mb-7 grid justify-items-start gap-4"><div><span class="inline-block rounded-full bg-purple-300 px-3 py-[5px] font-body text-sm font-medium text-purple-900">AI</span></div><h1 class="font-head text-[32px] font-bold leading-[1.2] text-ink min-[641px]:text-[40px]">Letting Claude run your Gmail inbox: what it can do and the risks</h1><p class="max-w-[64ch] text-base text-muted">AI can now reply, send and forward email for you, which makes careful settings important.</p><div class="flex flex-wrap gap-x-[18px] gap-y-0.5 text-sm leading-[1.6] text-muted"><span>By NewsTech Team</span><span>6 Sept 2026</span><span>2 min read</span></div></header><div class="mb-9 aspect-video overflow-hidden rounded-2xl bg-navy [&>img]:block [&>img]:h-full [&>img]:w-full [&>img]:object-cover"><img src="../images/claude-clear.jpg" alt="Letting Claude run your Gmail inbox: what it can do and the risks"></div><div class="prose prose-slate max-w-[640px] prose-headings:font-head prose-headings:text-ink prose-h2:mb-2 prose-h2:mt-8 prose-h2:text-2xl prose-p:text-ink prose-a:text-purple prose-li:marker:text-purple" id="article-body"><p>Claude can now manage a Gmail inbox, including sending, replying to and forwarding messages for you, even without per-message approval if you allow it. That convenience carries real risks, and AI agents have already made costly mistakes, such as one tool deleting a researcher&#39;s emails against her instructions. Claude cannot permanently delete messages, but it can trash or archive them.</p><p>The main risks are hallucinated details in an email that goes out before you notice, a misunderstood request that sends something unintended, and prompt injection, where an attacker hides instructions in an incoming email, for example in invisible white or zero-size text, that the AI reads and obeys. That could be used to pull out sensitive data such as verification codes. Because Claude can send straight away unless you have review enabled, recipients may spot errors before you do, and there are privacy considerations in giving an AI company access to your whole inbox.</p><p>To reduce the risk, keep approval turned on so you review actions before they run, and give specific instructions instead of vague ones, such as spelling out exactly what to tell HR rather than just asking for an email about your absence.</p></div><footer class="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-purple-100 pt-6"><ul class="flex flex-wrap gap-2" aria-label="Tags"><li class="rounded-full border border-purple-300 bg-white px-3 py-1 text-sm text-purple-800">Claude</li><li class="rounded-full border border-purple-300 bg-white px-3 py-1 text-sm text-purple-800">AI agents</li><li class="rounded-full border border-purple-300 bg-white px-3 py-1 text-sm text-purple-800">Privacy</li></ul></footer></article>
+
+    <section class="bg-white px-0 py-16" id="related" aria-labelledby="related-title" hidden>
+      <div class="mx-auto w-[min(100%-3rem,1120px)]">
+        <div class="mb-8"><h2 class="font-head text-2xl font-semibold leading-[1.3] text-purple" id="related-title">Keep reading</h2></div>
+        <div class="grid grid-cols-1 gap-6 min-[641px]:grid-cols-2 min-[961px]:grid-cols-3" id="related-grid"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="mt-0 bg-navy px-0 pb-7 pt-14 text-white">
+    <div class="mx-auto w-[min(100%-3rem,1120px)]">
+      <div class="grid grid-cols-1 gap-10 min-[641px]:grid-cols-2 min-[961px]:grid-cols-[1.5fr_1fr_1fr]">
+        <div>
+          <a class="brand inline-flex items-center gap-2.5 font-head text-lg font-semibold text-white no-underline hover:text-cyan" href="../index.html"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="9" fill="#6C3FA0"/><path d="M7 17h5l3-7 4 12 3-5h3" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="25" cy="17" r="2.2" fill="#4CC9F0"/></svg><span>NewsTech</span></a>
+          <p class="mt-3.5 max-w-[36ch] text-purple-100">Clear technology news and useful blogs for students and technology enthusiasts.</p>
+          <ul class="mt-5 flex list-none gap-3 p-0" aria-label="Social media">
+            <li>
+              <a class="block h-10 w-10 overflow-hidden rounded-full transition-transform hover:-translate-y-0.5" href="https://www.facebook.com/share/1DT56iYkmx/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <img class="h-full w-full object-cover" src="../images/facebook.png" alt="">
+              </a>
+            </li>
+            <li>
+              <a class="block h-10 w-10 overflow-hidden rounded-full transition-transform hover:-translate-y-0.5" href="https://t.me/suong_sxilwix" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                <img class="h-full w-full object-cover" src="../images/telegram.png" alt="">
+              </a>
+            </li>
+            <li>
+              <a class="block h-10 w-10 overflow-hidden rounded-full transition-transform hover:-translate-y-0.5" href="https://youtube.com/@MISSING-HALLOWEEN-l5i" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <img class="h-full w-full object-cover" src="../images/youtube.png" alt="">
+              </a>
+            </li>
+          </ul>
+        </div>
+        <nav aria-label="Explore">
+          <h2 class="mb-3 font-head text-lg font-semibold text-white">Explore</h2>
+          <ul class="m-0 grid list-none gap-2 p-0">
+            <li><a class="text-white no-underline hover:text-cyan hover:underline" href="../index.html">Home</a></li>
+            <li><a class="text-white no-underline hover:text-cyan hover:underline" href="../news.html">News</a></li>
+            <li><a class="text-white no-underline hover:text-cyan hover:underline" href="../blogs.html">Blogs</a></li>
+            <li><a class="text-white no-underline hover:text-cyan hover:underline" href="../categories.html">Categories</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="About" class="min-[641px]:col-span-2 min-[961px]:col-span-1">
+          <h2 class="mb-3 font-head text-lg font-semibold text-white">About</h2>
+          <ul class="m-0 grid list-none gap-2 p-0">
+            <li><a class="text-white no-underline hover:text-cyan hover:underline" href="../about.html">About us</a></li>
+            <li><a class="text-white no-underline hover:text-cyan hover:underline" href="../about.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="mt-10 border-t border-white/[0.14] pt-5 text-sm text-purple-100">&copy; <span data-year>2026</span> NewsTech. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button class="to-top fixed bottom-5 right-5 z-[55] inline-flex h-[46px] w-[46px] translate-y-3 items-center justify-center rounded-full bg-purple text-white opacity-0 pointer-events-none shadow-[0_12px_26px_rgba(23,26,43,0.28)] transition-all duration-200 hover:bg-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan focus-visible:outline-offset-2" id="to-top" type="button" aria-label="Back to top">
+    <svg class="h-5 w-5 fill-none stroke-current stroke-2 [stroke-linecap:round] [stroke-linejoin:round]" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/article.js"></script>
+</body>
+</html>
