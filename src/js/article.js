@@ -35,6 +35,17 @@
     return "";
   }).join("");
 
+  /* Source box: credits the original reporting. Shown only when data.js has source.name. */
+  var sourceBox = "";
+  if (a.source && a.source.name) {
+    var srcName = esc(a.source.name);
+    var srcLink = a.source.url
+      ? '<a class="font-medium text-purple hover:text-purple-800" href="' + esc(a.source.url) + '" target="_blank" rel="noopener noreferrer">' + srcName + "</a>"
+      : '<span class="font-medium text-ink">' + srcName + "</span>";
+    sourceBox = '<aside class="mt-8 max-w-[640px] rounded-2xl border border-purple-100 bg-white px-[22px] py-4 text-sm text-muted" aria-label="Source">' +
+      "Source: " + srcLink + ". This is a short summary written by NewsTech in our own words. Read the original report for full details.</aside>";
+  }
+
   var crumb = "text-sm text-muted";
   root.innerHTML =
     '<nav class="mb-7" aria-label="Breadcrumb"><ol class="flex flex-wrap gap-x-0 gap-y-1 ' + crumb + '">' +
@@ -50,6 +61,7 @@
     "</header>" +
     '<div class="mb-9 aspect-video overflow-hidden rounded-2xl bg-navy [&>svg]:block [&>svg]:h-full [&>svg]:w-full [&>img]:block [&>img]:h-full [&>img]:w-full [&>img]:object-cover">' + coverMedia(a) + "</div>" +
     '<div class="prose prose-slate max-w-[640px] prose-headings:font-head prose-headings:text-ink prose-h2:mb-2 prose-h2:mt-8 prose-h2:text-2xl prose-p:text-ink prose-a:text-purple prose-li:marker:text-purple" id="article-body">' + body + "</div>" +
+    sourceBox +
     '<footer class="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-purple-100 pt-6">' +
     '<ul class="flex flex-wrap gap-2" aria-label="Tags">' + a.tags.map(function (t) { return '<li class="rounded-full border border-purple-300 bg-white px-3 py-1 text-sm text-purple-800">' + esc(t) + "</li>"; }).join("") + "</ul>" +
     '<div class="flex items-center gap-3"><button type="button" class="' + BTN_OUTLINE_DARK + '" id="copy-link">Copy link</button>' +
