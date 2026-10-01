@@ -1047,7 +1047,7 @@ const ARTICLES = [
       "name": "BBC News",
       "url": ""
     },
-    "date": "2026-11-25",
+    "date": "2026-10-25",
     "tags": [
       "HTML",
       "CSS",
